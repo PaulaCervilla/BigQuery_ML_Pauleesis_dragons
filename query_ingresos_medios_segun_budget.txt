@@ -1,0 +1,13 @@
+SELECT case when budget<=1000000 then '<=1M'
+            when budget<=10000000 then '<=10M'
+            when budget<=20000000 then '<=20M'
+            when budget<=50000000 then '<=50M'
+            when budget<=100000000 then '<=100M'
+            when budget<=500000000 then '<=500M'
+            else '>500M' end presup,
+        round(avg(gross),0) ingr_medios,
+    count(*) num
+FROM movies_kschool.movies
+where budget is not null and budget>0 and gross is not null and gross>0
+group by presup
+order by ingr_medios desc
