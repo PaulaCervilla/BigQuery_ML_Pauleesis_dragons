@@ -1,0 +1,29 @@
+﻿
+
+Compute number of ‘Color’ vs ‘White’ movies in
+the dataset.
+
+
+SELECT Color, count(*) num_movies
+
+FROM `ML_Hackaton.movies`
+
+where color is not null
+
+group by color
+
+
+
+Row
+Color
+num_movies
+
+1
+Color
+4815
+
+2
+Black and White
+209
+
+
