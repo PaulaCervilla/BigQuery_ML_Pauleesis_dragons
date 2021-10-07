@@ -1,0 +1,21 @@
+CREATE MODEL movies_kschool.Evol_BT
+OPTIONS (MODEL_TYPE ='BOOSTED_TREE_REGRESSOR'
+    , INPUT_LABEL_COLS=['gross']
+    , DATA_SPLIT_METHOD='RANDOM'
+    , DATA_SPLIT_EVAL_FRACTION=0.2
+    , ENABLE_GLOBAL_EXPLAIN=TRUE)
+AS
+SELECT language,
+    genres,
+    color, num_critic_for_reviews, duration, director_facebook_likes, actor_3_facebook_likes, actor_1_facebook_likes,
+    num_voted_users, cast_total_facebook_likes, num_user_for_reviews, budget, title_year, actor_2_facebook_likes, aspect_ratio,
+    imdb_score, gross
+FROM movies_kschool.Evolved_table
+
+
+Metrics:
+Error absoluto promedio: 23,431,686.1598
+Error cuadrático medio: 1,666,552,736,013,379.8
+Error logarítmico cuadrático medio: 2.8293
+Mediana de error absoluto: 12,695,301
+R al cuadrado: 0.6329

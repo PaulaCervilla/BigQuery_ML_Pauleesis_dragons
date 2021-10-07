@@ -1,0 +1,12 @@
+SELECT case when language in (SELECT  language
+        FROM `buoyant-program-326917.movies_kschool.movies`
+        where gross is not null and budget is not null and not (country<>'USA' and budget>=300000000)
+        group by language
+        having count(*)>=10) 
+        then language else 'Other' end language,
+    case when INSTR(genres, '|')=0 then genres else left(genres, INSTR(genres, '|')-1) end genres,
+    color, num_critic_for_reviews, duration, director_facebook_likes, actor_3_facebook_likes, actor_1_facebook_likes,
+    num_voted_users, cast_total_facebook_likes, num_user_for_reviews, budget, title_year, actor_2_facebook_likes, aspect_ratio,
+    imdb_score, gross
+FROM movies_kschool.movies
+where gross is not null and budget is not null and not (country<>'USA' and budget>=300000000)
