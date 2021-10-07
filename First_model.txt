@@ -1,0 +1,37 @@
+﻿First MVP:
+
+CREATE MODEL
+ML_Hackaton.MPV_LR
+OPTIONS(MODEL_TYPE = 'LINEAR_REG',
+    INPUT_LABEL_COLS = ['gross'],
+    DATA_SPLIT_METHOD = 'RANDOM',
+    DATA_SPLIT_EVAL_FRACTION = 0.2,
+    ENABLE_GLOBAL_EXPLAIN = TRUE
+)
+AS
+SELECT color, num_critic_for_reviews, duration, director_facebook_likes, actor_3_facebook_likes, actor_1_facebook_likes,
+
+    num_voted_users, cast_total_facebook_likes, num_user_for_reviews, budget, title_year, actor_2_facebook_likes, aspect_ratio,
+
+    imdb_score, gross
+    
+FROM 
+  ML_Hackaton.MVP_Table
+
+
+Metrics:
+
+mean_absolute_error: 3.377909392362976E7
+mean_squared_error: 3.518666433233149E15
+mean_squared_log_error: 3.3437342167443047
+median_absolute_errorr: 2.0202043492158003E7
+2_score: 0.3517315205495797
+explained_variance: 0.35173890080420245
+
+
+
+
+
+
+
+
