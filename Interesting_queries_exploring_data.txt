@@ -33,6 +33,8 @@ group by imdb_group
 order by num desc
 
 
+
+
 Number of movies depending on its Facebook likes:
 
 SELECT case when movie_facebook_likes=0 then '0'
@@ -58,6 +60,8 @@ FROM `ML_Hackaton.movies`
 group by face_likes_group
 
 order by num desc
+
+
 
 
 Depending on imdb score, it gives you the average of Facebook likes:
@@ -96,3 +100,35 @@ group by imdb_group
 
 order by imdb_group desc
 
+
+
+
+This query tells you how many films have each duration range:
+
+SELECT case when duration<30 then '<30'
+
+        when duration<45 then '<45'
+
+        when duration<60 then '<60'
+
+        when duration<90 then '<90'
+
+        when duration<120 then '<120'
+
+        when duration<150 then '<150'
+
+        when duration<180 then '<180'
+
+        when duration<240 then '<240'
+
+        when duration is null or duration=0 then 'vacio'
+
+        else '>240' end minutos,
+
+    count(*) num
+
+FROM `ML_Hackaton.movies`
+
+group by minutos
+
+order by num desc
